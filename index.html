@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Favorites App</title>
+    <style>
+        /* Basic layout and styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .sidebar button {
+            background-color: #444;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin: 10px 0;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .sidebar button:hover {
+            background-color: #555;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .movie, .favorite {
+            display: inline-block;
+            width: 150px;
+            margin: 10px;
+            text-align: center;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie img, .favorite img {
+            width: 100%;
+            height: auto;
+        }
+
+        .favorite-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .favorite-btn .star {
+            color: gold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .sidebar button {
+                text-align: center;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movie, .favorite {
+                width: 120px;
+            }
+
+            #searchInput {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="sidebar">
+        <h2>SportyLight</h2>
+        <button id="homeBtn">Home</button>
+        <button id="favoritesBtn">Favorites</button>
+    </div>
+
+  
+    <div class="main-content">
+        <header>
+            <h1>Movie App</h1>
+        </header>
+
+      
+        <input type="text" id="searchInput" placeholder="Search for movies..." />
+
+       
+        <div id="main" class="page active">
+            <div id="movies"></div> 
+        </div>
+
+       
+        <div id="favoritesPage" class="page">
+            <div id="favorites"></div> 
+    </div>
+
+    <script src="index.js"></script> 
+</body>
+</html>
